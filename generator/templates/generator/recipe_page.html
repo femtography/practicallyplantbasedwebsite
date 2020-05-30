@@ -1,0 +1,56 @@
+{% extends "./base.html" %}
+
+{% block additional_styles %}
+  <style>
+     body {
+      background-image: url('https://easyveggies.s3.us-east-2.amazonaws.com/BG5.jpg');
+     }
+  </style>
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+  <div class="gen_title">
+    <p>Recipe List</p>
+  </div>
+  {% for om in recipes %}
+  <div class="recipe">
+    <h1>{{ om.name }}</h1>
+    <h5>Main Ingredients:</h5>
+    <p>{{ om.main }}</p>
+    <h5>Oils & Sauces:</h5>
+    <p>{{ om.oils }}</p>
+    <h5>Seasonings:</h5>
+    <p>{{ om.seasoning }}</p>
+    <h5>Cooking Instructions:</h5>
+    <p>{{ om.preparation }}</p>
+  </div>
+  {% endfor %}
+
+  <div class="g_list">
+    <p>Your Grocery List:</p>
+    <p>------------------</p>
+    {% for g in ing_li %}
+    <p>{{ g }}</p>
+    {% endfor %}
+    <p>---</p>
+    <p>---</p>
+    <p>This is assuming you have the following Sauces/Oils:</p>
+    {% for o in oils_li %}
+    <p>{{ o }}</p>
+    {% endfor %}
+    <p>---</p>
+    <p>---</p>
+    <p>This is assuming you have the following Seasonings:</p>
+    {% for s in seasons_li %}
+    <p>{{ s }}</p>
+    {% endfor %}
+    <p>---</p>
+    <p>---</p>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+{% endblock %}
