@@ -46,15 +46,8 @@ def render_to_pdf(template_src, context_dict={}):
 	return None
 
 class ViewPDF(View):
-	def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
+        pdf = render_to_pdf('generator/pdf_template.html', pdf_ing)
+        response = HttpResponse(pdf, content_type='application/pdf')
 
-		pdf = render_to_pdf('generator/pdf_template.html', pdf_ing)
-		return HttpResponse(pdf, content_type='application/pdf')
-
-
-class DownloadPDF(View):
-	def get(self, request, *args, **kwargs):
-		pdf = render_to_pdf('generator/pdf_template.html', pdf_ing)
-		response = HttpResponse(pdf, content_type='application/pdf')
-        
-        return FileResponse(response, as_attachment=True, filename='My_Recipe(s).pdf')
+        return response
