@@ -30,6 +30,17 @@ body {
   padding-top: 20vh;
   text-align: center;
 }
+.container_home_2 h1 {
+  font-size: 10vh;
+
+}
+#ppb_edit {
+  margin: 5vh;
+  margin-top: 10vh;
+  margin-bottom: 15vh;
+  padding-bottom: 5vh;
+  padding-top: 0vh;
+}
 .container_home_3 {
   background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG6.jpg') no-repeat center right fixed;
   min-height: 100vh;
@@ -57,7 +68,7 @@ body {
   padding-top: 20vh;
 }
 .container_home_5 {
-  background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG7.jpg') no-repeat center left fixed;
+  background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG14.jpg') no-repeat center left fixed;
   min-height: 100vh;
   padding: 5vh;
   padding-top: 15vh;
@@ -122,6 +133,7 @@ body {
 #thinner {
   max-width: 50vw;
   padding: 5vh;
+  opacity: .95;
 }
 
 footer{

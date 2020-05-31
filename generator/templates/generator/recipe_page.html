@@ -3,19 +3,19 @@
 {% block additional_styles %}
   <style>
      body {
-      background-image: url('https://easyveggies.s3.us-east-2.amazonaws.com/BG5.jpg');
+      background-image: url('https://easyveggies.s3.us-east-2.amazonaws.com/BG15.jpg');
      }
   </style>
 {% endblock %}
 
 {% block content %}
 {% load static %}
-<div class="container">
+<div class="container rounded-lg">
   <div class="gen_title">
     <p>Recipe List</p>
   </div>
   {% for om in recipes %}
-  <div class="recipe">
+  <div class="recipe rounded-lg">
     <h1>{{ om.name }}</h1>
     <h5>Main Ingredients:</h5>
     <p>{{ om.main }}</p>
@@ -28,7 +28,7 @@
   </div>
   {% endfor %}
 
-  <div class="g_list">
+  <div class="g_list rounded-lg">
     <p>Your Grocery List:</p>
     <p>------------------</p>
     {% for g in ing_li %}
