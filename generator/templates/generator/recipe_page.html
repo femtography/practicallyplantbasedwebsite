@@ -3,7 +3,7 @@
 {% block additional_styles %}
   <style>
      body {
-      background-image: url('https://easyveggies.s3.us-east-2.amazonaws.com/BG15.jpg');
+      background-image: url('https://easyveggies.s3.us-east-2.amazonaws.com/BG{{ bg_pic }}.jpg');
      }
   </style>
 {% endblock %}
@@ -29,25 +29,31 @@
   {% endfor %}
 
   <div class="g_list rounded-lg">
-    <p>Your Grocery List:</p>
-    <p>------------------</p>
+    <h1>Your Grocery List:</h1>
+
     {% for g in ing_li %}
     <p>{{ g }}</p>
     {% endfor %}
-    <p>---</p>
-    <p>---</p>
+
+    {% if oils_li|length > 0 %}
     <p>This is assuming you have the following Sauces/Oils:</p>
     {% for o in oils_li %}
     <p>{{ o }}</p>
     {% endfor %}
-    <p>---</p>
-    <p>---</p>
+    {% else %}
+    <p>This recipe list requires no sauces/oils.</p>
+    {% endif %}
+
+
+    {% if seasons_li|length > 0 %}
     <p>This is assuming you have the following Seasonings:</p>
     {% for s in seasons_li %}
     <p>{{ s }}</p>
     {% endfor %}
-    <p>---</p>
-    <p>---</p>
+    {% else %}
+    <p>This recipe list requires no seasonings.</p>
+    {% endif %}
+
   </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

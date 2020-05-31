@@ -15,12 +15,14 @@ def recipe_list(request, amount):
     main_i = []
     oils_i = []
     seasoning_i =[]
+    bg_i = random.sample([2, 5, 10, 11, 12, 15], 1)
 
     for r in r_list:
         main_i = main_i + [x.replace(',', '') for x in r.main.split('\r\n') if x.replace(',', '') not in main_i ]
         oils_i = oils_i + [x.replace(',', '') for x in r.oils.split('\r\n')if x.replace(',', '') not in oils_i ]
         seasoning_i = seasoning_i + [x.replace(',', '') for x in r.seasoning.split('\r\n') if x.replace(',', '') not in seasoning_i ]
 
-    args = {"recipes": r_list, 'ing_li': main_i, 'oils_li': oils_i, 'seasons_li': seasoning_i}
+    args = {"recipes": r_list, 'ing_li': main_i, 'oils_li': oils_i, 'seasons_li': seasoning_i, 'bg_pic': bg_i[0]}
+
 
     return render(request, 'generator/recipe_page.html', args)
