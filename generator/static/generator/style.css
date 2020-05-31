@@ -116,9 +116,12 @@ body {
   margin-right: 10vh;
   margin-left: 10vh;
 }
-#centerer {
-  margin-left: 25vw;
-  background: grey;
+.form-group {
+  text-align: left;
+}
+#thinner {
+  max-width: 50vw;
+  padding: 5vh;
 }
 
 footer{
