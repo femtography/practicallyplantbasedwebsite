@@ -37,12 +37,18 @@ body {
   padding-top: 15vh;
 }
 .container-sm {
-  background: grey;
+  background: white;
   opacity: .9;
   margin-bottom: 10vh;
   margin-left: 10vh;
   max-width: 30vw;
   text-align: center;
+  padding-top: 5vh;
+}
+.container-sm p {
+  margin-top: 10vh;
+  margin-left: 2vh;
+  margin-right: 2vh;
 }
 .container_home_4 {
   background: white;
