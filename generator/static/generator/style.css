@@ -34,7 +34,14 @@ body {
   background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG6.jpg') no-repeat center right fixed;
   min-height: 100vh;
   padding: 5vh;
-  padding-top: 20vh;
+  padding-top: 15vh;
+}
+.container-sm {
+  background: grey;
+  opacity: .9;
+  margin-bottom: 10vh;
+  margin-left: 10vh;
+  max-width: 30vw;
   text-align: center;
 }
 .container_home_4 {
@@ -42,23 +49,23 @@ body {
   min-height: 20vh;
   padding: 5vh;
   padding-top: 20vh;
-  text-align: center;
 }
 .container_home_5 {
   background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG7.jpg') no-repeat center left fixed;
   min-height: 100vh;
   padding: 5vh;
-  padding-top: 20vh;
-  text-align: center;
+  padding-top: 15vh;
+}
+.container-fluid {
+  display: inline-flex;
 }
 .container_home_6 {
   background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG8.jpg') no-repeat center right fixed;
   min-height: 100vh;
   padding: 5vh;
-  padding-top: 20vh;
+  padding-top: 15vh;
   text-align: center;
 }
-
 .container {
   background: white;
   opacity: .95;
@@ -95,6 +102,17 @@ body {
   margin: 5vh;
   padding: 5vh;
   text-align: center;
+}
+.prof_pic img {
+  max-height: 85vh;
+  max-width: 40vw;
+  margin-bottom: 10vh;
+  margin-right: 10vh;
+  margin-left: 10vh;
+}
+#centerer {
+  margin-left: 25vw;
+  background: grey;
 }
 
 footer{
