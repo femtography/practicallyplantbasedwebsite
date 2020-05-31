@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from .models import Recipe
 import random
+from io import BytesIO
+from django.http import HttpResponse
+from django.template.loader import get_template
+from django.views import View
+from xhtml2pdf import pisa
 
 # Create your views here.
 def index(request):
@@ -22,7 +27,34 @@ def recipe_list(request, amount):
         oils_i = oils_i + [x.replace(',', '') for x in r.oils.split('\r\n')if x.replace(',', '') not in oils_i ]
         seasoning_i = seasoning_i + [x.replace(',', '') for x in r.seasoning.split('\r\n') if x.replace(',', '') not in seasoning_i ]
 
+    global pdf_ing
+
+    pdf_ing = {'ing_li': main_i, 'oils_li': oils_i, 'seasons_li': seasoning_i}
+
     args = {"recipes": r_list, 'ing_li': main_i, 'oils_li': oils_i, 'seasons_li': seasoning_i, 'bg_pic': bg_i[0]}
 
 
     return render(request, 'generator/recipe_page.html', args)
+
+def render_to_pdf(template_src, context_dict={}):
+	template = get_template(template_src)
+	html  = template.render(context_dict)
+	result = BytesIO()
+	pdf = pisa.pisaDocument(BytesIO(html.encode("cp1252")), result)
+	if not pdf.err:
+		return HttpResponse(result.getvalue(), content_type='application/pdf')
+	return None
+
+class ViewPDF(View):
+	def get(self, request, *args, **kwargs):
+
+		pdf = render_to_pdf('generator/pdf_template.html', pdf_ing)
+		return HttpResponse(pdf, content_type='application/pdf')
+
+
+class DownloadPDF(View):
+	def get(self, request, *args, **kwargs):
+		pdf = render_to_pdf('generator/pdf_template.html', pdf_ing)
+		response = HttpResponse(pdf, content_type='application/pdf')
+        
+        return FileResponse(response, as_attachment=True, filename='My_Recipe(s).pdf')
