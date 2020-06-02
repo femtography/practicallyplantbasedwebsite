@@ -37,75 +37,123 @@ def recipe_list(request, amount):
 
     return render(request, 'generator/recipe_page.html', args)
 
-def pdf_gen(item_dict={}, recipes={}):
-    buffer = io.BytesIO()
-    pdfl = canvas.Canvas(buffer)
-
+def g_list_to_pdf( pdf, item_dict={}):
+    pdf.setFont('Helvetica', 36)
     x = 50
     y = 750
-    pdfl.drawString(x, y, "Your Grocery List:")
-    y = y - 30
+    pdf.drawString(50, y, "Your Grocery List")
+    y = y - 40
 
     for key in item_dict.keys():
+        x = 50
         if y < 50:
-            pdfl.showPage()
+            pdf.showPage()
             y = 800
+        pdf.setFont('Helvetica', 18)
         if key == 'oils_li':
+            if y < 250:
+                pdf.showPage()
+                y = 800
+                pdf.setFont('Helvetica', 18)
             y = y - 20
-            pdfl.drawString(x, y, "This is assuming that you have the following Oils/Sauces:")
+            pdf.drawString(x, y, "This is assuming that you have the following Oils/Sauces:")
             y = y - 30
         elif key == 'seasons_li':
+            if y < 250:
+                pdf.showPage()
+                y = 800
+                pdf.setFont('Helvetica', 18)
             y = y - 20
-            pdfl.drawString(x, y, "This is assuming that you have the following Seasonings:")
+            pdf.drawString(x, y, "This is assuming that you have the following Seasonings:")
             y = y - 30
 
+        pdf.setFont('Helvetica', 12)
         for value in item_dict[key]:
-            pdfl.drawString(x, y, value)
-            y = y - 20
+            if len(value) > 2:
+                pdf.drawString(x, y, value)
+                y = y - 20
 
-    pdfl.showPage()
+    pdf.showPage()
     y = 800
 
-    y = y - 30
-    pdfl.drawString(x, y, "Recipes:")
-    y = y - 30
-
+def recipes_to_pdf(y_val, pdf, recipes={}):
+    x = 50
+    y = y_val
     for r in recipes:
+        pdf.setFont('Helvetica', 30)
         y = y - 30
-        pdfl.drawString(x, y, r.name)
-        y = y - 40
-        pdfl.drawString(x, y, "Main Ingredients:")
-        y = y - 30
-        for item in [x.replace(',', '') for x in r.main.split('\r\n')]:
-            pdfl.drawString(x, y, item)
+        pdf.drawString(x, y, r.name)
+        y = y - 50
+        obj_options = [r.main, r.seasoning, r.oils]
+        for i, t in enumerate(["Main Ingredients:", "Seasonings:", "Oils/Sauces:"]):
+            obj_op = obj_options[i]
+            pdf.setFont('Helvetica', 20)
+            pdf.drawString(x, y, t)
+            y = y - 30
+            pdf.setFont('Helvetica', 12)
+            for item in [x.replace(',', '') for x in obj_op.split('\r\n')]:
+                pdf.drawString(x, y, item)
+                y = y - 20
             y = y - 20
-        y = y - 20
-        pdfl.drawString(x, y, "Seasonings:")
+
+        pdf.setFont('Helvetica', 20)
+        pdf.drawString(x, y, "Instructions:")
         y = y - 30
-        for item in [x.replace(',', '') for x in r.seasoning.split('\r\n')]:
-            pdfl.drawString(x, y, item)
-            y = y - 20
-        y = y - 20
-        pdfl.drawString(x, y, "Oils/Sauces:")
-        y = y - 30
-        for item in [x.replace(',', '') for x in r.oils.split('\r\n')]:
-            pdfl.drawString(x, y, item)
-            y = y - 20
-        y = y - 20
-        pdfl.drawString(x, y, "Instructions:")
-        y = y - 30
+        pdf.setFont('Helvetica', 12)
         for item in [x.replace(',', '') for x in r.preparation.split('\r\n')]:
-            pdfl.drawString(x, y, item)
-            y = y - 20
+            item_split = item.split('. ')
+            for i in item_split:
+                i_list = [x for x in i.split(' ')]
+                if len(i_list) <= 14:
+                    if "." not in i:
+                        pdf.drawString(x, y, i + '.')
+                    y = y - 20
+                elif len(i_list) > 14 and len(i_list) <= 28:
+                    s = 0
+                    t = len(i_list)//2
+                    u = len(i_list)
+                    a = i_list[s:t]
+                    b = i_list[t:u]
+                    if "." not in i:
+                        b[-1] = b[-1]+'.'
+                    pdf.drawString(x, y, " ".join(a))
+                    y = y - 20
+                    pdf.drawString(x, y, " ".join(b))
+                    y = y - 20
+                elif len(i_list) > 28:
+                    s = 0
+                    t = len(i_list)//3
+                    u = t*2
+                    r = len(i_list)
+                    a = i_list[s:t]
+                    b = i_list[t:u]
+                    c = i_list[u:r]
+                    if "." not in i:
+                        c[-1] = c[-1]+'.'
+                    pdf.drawString(x, y, " ".join(a))
+                    y = y - 20
+                    pdf.drawString(x, y, " ".join(b))
+                    y = y - 20
+                    pdf.drawString(x, y, " ".join(c))
+                    y = y - 20
         y = y - 20
 
-        pdfl.showPage()
+        pdf.showPage()
         y = 800
 
-    pdfl.save()
+def pdf_gen(item_dict={}, recipes={}):
+    pdfl = io.BytesIO()
+    pdf_doc = canvas.Canvas(pdfl)
+    pdf_doc.setTitle("MyRecipe(s).pdf")
+    y = 800
 
-    buffer.seek(0)
-    return buffer
+    g_list_to_pdf(pdf_doc, item_dict)
+    recipes_to_pdf(y, pdf_doc, recipes)
+
+    pdf_doc.save()
+
+    pdfl.seek(0)
+    return pdfl
 
 class ViewPDF(View):
     def get(self, request, *args, **kwargs):
