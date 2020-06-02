@@ -58,18 +58,19 @@
 </div>
 
 <div class="container_home_6">
-  <div class="container-sm rounded-lg" id="thinner">
+  <div class="container-sm rounded-lg" method="post" action="{% url 'home' %}" id="thinner">
+    {% csrf_token %}
     <form>
       <h1>Contact Us</h1>
       <div class="form-group">
         <label for="FormControlInput1">Name</label>
-        <input class="form-control form-control-lg" id="FormControlInput1" type="text" placeholder="Your Name">
+        <input class="form-control form-control-lg" name="name" type="text" placeholder="Your Name">
         <label for="FormControlInput2">Email address</label>
-        <input type="email" class="form-control" id="FormControlInput2" placeholder="name@example.com">
+        <input type="email" class="form-control" name="email" placeholder="name@example.com">
         <label for="FormControlTextarea1">Message:</label>
-        <textarea class="form-control" id="FormControlTextarea1" rows="7"></textarea>
+        <textarea class="form-control" name="message" rows="7"></textarea>
       </div>
-      <button type="button" class="btn btn-outline-primary">Contact</button>
+      <button type="submit" class="btn btn-lg btn-outline-primary">Contact</button>
     </form>
   </div>
 </div>

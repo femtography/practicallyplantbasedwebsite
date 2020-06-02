@@ -6,12 +6,18 @@ from io import BytesIO
 from django.http import HttpResponse, FileResponse
 from django.views import View
 from reportlab.pdfgen import canvas
+from django.core.mail import send_mail
+from django.conf import settings
+
 
 # Create your views here.
 def index(request):
     return render(request, 'generator/index.html')
 
 def home(request):
+    if request.method == "POST":
+        message = request.POST['message', 'name', 'email']
+        send_mail(name + " is reaching out from" + email, message, settings.EMAIL_HOST_USER, ['practicallyplantpowered@gmail.com'], fail_silently=FALSE)
     return render(request, 'generator/home.html')
 
 def recipe_list(request, amount):
