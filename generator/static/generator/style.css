@@ -81,7 +81,6 @@ body {
   min-height: 100vh;
   padding: 5vh;
   padding-top: 15vh;
-  text-align: center;
 }
 .container {
   background: white;
@@ -100,14 +99,6 @@ body {
 .containers-container {
   min-height: 20vh;
 }
-.form-group {
-  text-align: center;
-  align-self: center;
-}
-.form-control {
-  margin-bottom: 5vh;
-}
-
 .recipe {
   background: grey;
   margin: 5vh;

@@ -15,10 +15,27 @@ def index(request):
     return render(request, 'generator/index.html')
 
 def home(request):
-    if request.method == "POST":
-        message = request.POST['message', 'name', 'email']
-        send_mail(name + " is reaching out from" + email, message, settings.EMAIL_HOST_USER, ['practicallyplantpowered@gmail.com'], fail_silently=FALSE)
+    if request.method == 'POST':
+        message = request.POST['message']
+        name = request.POST['users_name']
+        email = request.POST['users_email']
+
+        subject = 'PPB User ' + name.capitalize() + ' is reaching out from ' + email
+
+        send_mail(subject,
+        message,
+        settings.EMAIL_HOST_USER,
+        ['practicallyplantpowered@gmail.com'],
+        fail_silently=False)
+
     return render(request, 'generator/home.html')
+
+def emailer(request):
+    subject = 'Thank you for registering to our site'
+    message = ' it  means a world to us '
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = ['practicallyplantpowered@gmail.com',]
+    send_mail( subject, message, email_from, recipient_list )
 
 def recipe_list(request, amount):
     global r_list

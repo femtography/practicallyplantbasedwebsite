@@ -58,21 +58,51 @@
 </div>
 
 <div class="container_home_6">
-  <div class="container-sm rounded-lg" method="post" action="{% url 'home' %}" id="thinner">
-    {% csrf_token %}
-    <form>
+  <div class="container-c">
+    <form method="POST" action="{% url 'home' %}" class="container-sm rounded-lg needs-validation" id="thinner" novalidate>
+      {% csrf_token %}
       <h1>Contact Us</h1>
       <div class="form-group">
-        <label for="FormControlInput1">Name</label>
-        <input class="form-control form-control-lg" name="name" type="text" placeholder="Your Name">
-        <label for="FormControlInput2">Email address</label>
-        <input type="email" class="form-control" name="email" placeholder="name@example.com">
-        <label for="FormControlTextarea1">Message:</label>
-        <textarea class="form-control" name="message" rows="7"></textarea>
+        <label for="users_name">Name</label>
+        <input type="text" class="form-control" name="users_name" placeholder="Your Name" required>
+        <div class="valid-feedback">Great name!</div>
+        <div class="invalid-feedback">Please provide your name.</div>
       </div>
-      <button type="submit" class="btn btn-lg btn-outline-primary">Contact</button>
+      <div class="form-group">
+        <label for="users_name">Email</label>
+        <input type="email" class="form-control" name="users_email" placeholder="your_email@sender.com" required>
+        <div class="valid-feedback">Great email!</div>
+        <div class="invalid-feedback">Please provide your email.</div>
+      </div>
+      <div class="form-group">
+        <label for="users_name">Your Message</label>
+        <textarea name="message" class="form-control" rows="8" placeholder="Message Text" required></textarea>
+        <div class="invalid-feedback">Please enter your message.</div>
+      </div>
+      <input type="submit" class="btn btn-lg btn-primary">
     </form>
   </div>
 </div>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
 
 {% endblock %}
