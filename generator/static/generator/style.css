@@ -57,9 +57,12 @@ body {
   padding-top: 5vh;
 }
 .container-sm p {
-  margin-top: 10vh;
+  margin-top: 5vh;
   margin-left: 2vh;
   margin-right: 2vh;
+}
+.container-sm h1 {
+  font-size: 60px;
 }
 .container_home_4 {
   background: white;
