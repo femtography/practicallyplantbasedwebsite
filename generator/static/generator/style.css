@@ -27,12 +27,12 @@ body {
   background: white;
   min-height: 100vh;
   padding: 5vh;
-  padding-top: 20vh;
+  padding-top: 10vh;
   text-align: center;
 }
 .container_home_2 h1 {
   font-size: 10vh;
-
+  margin-top: 3vh;
 }
 #ppb_edit {
   margin: 5vh;
@@ -55,6 +55,7 @@ body {
   max-width: 30vw;
   text-align: center;
   padding-top: 5vh;
+  padding-bottom: 2vh;
 }
 .container-sm p {
   margin-top: 5vh;
@@ -123,6 +124,9 @@ body {
 }
 .form-group {
   text-align: left;
+}
+.quotable {
+  font-style: italic;
 }
 #thinner {
   max-width: 50vw;
