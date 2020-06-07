@@ -34,6 +34,14 @@ body {
   font-size: 10vh;
   margin-top: 3vh;
 }
+.container_home_2 h3 {
+  color: green;
+  font-style: italic;
+}
+.container_home_2 h4 {
+  color: green;
+  font-style: italic;
+}
 #ppb_edit {
   margin: 5vh;
   margin-top: 10vh;
@@ -127,13 +135,20 @@ body {
 }
 .quotable {
   font-style: italic;
+  margin-top: 6vh;
+  margin-bottom: 5vh;
 }
 #thinner {
   max-width: 50vw;
   padding: 5vh;
   opacity: .95;
 }
-
+#downer {
+  margin-top: 3vh;
+}
+#lowerer {
+  padding-top: 8vh;
+}
 footer{
   background: white;
   text-align: center;
