@@ -241,13 +241,22 @@ footer{
   }
   .container_home_3 {
     background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG16.jpg') no-repeat center right fixed;
+    min-height: 100vh;
+    padding: 5vh;
+    padding-top: 15vh;
     padding-right: 5vw;
   }
   .container_home_5 {
     background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG14.jpg') no-repeat center left fixed;
+    min-height: 100vh;
+    padding: 5vh;
+    padding-top: 15vh;
   }
   .container_home_6 {
     background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG8.jpg') no-repeat center right fixed;
+    min-height: 100vh;
+    padding: 5vh;
+    padding-top: 15vh;
   }
   .prof_pic img {
     margin-right: 10vh;
