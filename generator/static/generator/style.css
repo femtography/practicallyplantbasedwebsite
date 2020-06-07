@@ -240,7 +240,14 @@ footer{
     margin-top: 3vh;
   }
   .container_home_3 {
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG16.jpg') no-repeat center right fixed;
     padding-right: 5vw;
+  }
+  .container_home_5 {
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG14.jpg') no-repeat center left fixed;
+  }
+  .container_home_6 {
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG8.jpg') no-repeat center right fixed;
   }
   .prof_pic img {
     margin-right: 10vh;
