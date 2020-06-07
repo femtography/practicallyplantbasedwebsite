@@ -108,9 +108,6 @@ body {
   font-size: 16vh;
   text-align: center;
 }
-.containers-container {
-  min-height: 20vh;
-}
 .recipe {
   background: grey;
   margin: 5vh;
@@ -144,7 +141,7 @@ body {
   opacity: .95;
 }
 #downer {
-  margin-top: 3vh;
+  margin-top: 6vh;
 }
 #lowerer {
   padding-top: 8vh;
@@ -152,4 +149,104 @@ body {
 footer{
   background: white;
   text-align: center;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 449px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 450px) {
+  .container_home {
+    padding-left: 2vh;
+    min-height: 75vh;
+    padding-top: 5vh;
+  }
+
+  .container_home h1 {
+    font-size: 15vh;
+  }
+
+  .container-sm {
+    min-width: 40vw;
+    margin-bottom: 5vh;
+  }
+  .container-sm h1 {
+    font-size: 5vw;
+  }
+  #ppb_edit {
+    margin-top: 5vh;
+    margin-left: 0vw;
+  }
+  .container_home_2 h1 {
+    margin-top: 0vh;
+  }
+  .container_home_2 {
+    padding-left: 4vh;
+  }
+  .container_home_3 {
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG22.jpg') no-repeat center center fixed;
+    padding-top: 5vh;
+    padding-bottom: 0vh;
+  }
+  .container_home_5 {
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG23.jpg') no-repeat center center fixed;
+    padding-left: 2vh;
+    padding-top: 5vh;
+    padding-bottom: 0vh;
+    min-height: 20vh;
+  }
+  .container_home_6 {
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG24.jpg') no-repeat center bottom fixed;
+    padding-bottom: 5vh;
+    min-height: 20vh;
+  }
+  .prof_pic img {
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+  .container {
+    max-height: 60vh;
+    margin-bottom: 12vh;
+  }
+  .dropdown {
+    margin-top: 5vh;
+  }
+  #rp_extend {
+    max-height: none;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 1025px) {
+  .container_home {
+    min-height: 70vh;
+    padding-top: 20vh;
+  }
+  .container_home h1 {
+    font-size: 20vh;
+  }
+  .container-sm h1 {
+    font-size: 60px;
+  }
+  #ppb_edit {
+    margin-top: 10vh;
+    max-width: 35vw;
+    margin-left: 6vh;
+  }
+  .container_home_2 h1 {
+    margin-top: 3vh;
+  }
+  .container_home_3 {
+    padding-right: 5vw;
+  }
+  .prof_pic img {
+    margin-right: 10vh;
+    margin-left: 10vh;
+  }
+  .dropdown {
+    margin-top: 25vh;
+  }
 }
