@@ -151,8 +151,10 @@ footer{
   text-align: center;
 }
 
-
 @media only screen and (max-width: 449px) {
+  body {
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG28.jpg') no-repeat center center;
+  }
   #navbarNav {
     padding-right: 8vw;
   }
@@ -177,8 +179,15 @@ footer{
   .container_home_2 h4 {
     font-size: 25px;
   }
+  .container_home_3 {
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG16.jpg') no-repeat center center;
+  }
   .container_home_5 {
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG14.jpg') no-repeat center center;
     padding-left: 3vw;
+  }
+  .container_home_6 {
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG8.jpg') no-repeat center center;
   }
   .container-sm {
     min-width: 80vw;
@@ -222,6 +231,9 @@ footer{
   }
 }
 @media only screen and (min-width: 450px) {
+  body {
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG28.jpg') no-repeat center center;
+  }
   .container_home {
     padding-left: 2vh;
     min-height: 75vh;
@@ -250,19 +262,22 @@ footer{
     padding-left: 4vh;
   }
   .container_home_3 {
-    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG22.jpg') no-repeat center center fixed;
+    background-attachment: initial;
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG16.jpg') no-repeat center center;
     padding-top: 5vh;
     padding-bottom: 0vh;
   }
   .container_home_5 {
-    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG23.jpg') no-repeat center center fixed;
+    background-attachment: initial;
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG14.jpg') no-repeat center center;
     padding-left: 2vh;
     padding-top: 5vh;
     padding-bottom: 0vh;
     min-height: 20vh;
   }
   .container_home_6 {
-    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG24.jpg') no-repeat center bottom fixed;
+    background-attachment: initial;
+    background: white url('https://easyveggies.s3.us-east-2.amazonaws.com/BG8.jpg') no-repeat center bottom;
     padding-bottom: 5vh;
     min-height: 20vh;
   }
