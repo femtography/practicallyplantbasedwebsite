@@ -45,7 +45,7 @@ def recipe_list(request, amount):
     main_i = []
     oils_i = []
     seasoning_i =[]
-    bg_i = random.sample([2, 5, 10, 11, 12, 15], 1)
+    bg_i = random.sample([3, 7, 8, 9, 10, 11], 1)
 
     for r in r_list:
         main_i = main_i + [x.replace(',', '') for x in r.main.split('\r\n') if x.replace(',', '') not in main_i ]

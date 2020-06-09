@@ -9,27 +9,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'generator/style.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    {% block additional_styles %}
-      <style>
-         body {
-          background-image: url('https://easyveggies.s3.us-east-2.amazonaws.com/BG1.jpg');
-         }
-      </style>
-    {% endblock %}
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-clear">
-      <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/recipe_gen">Recipe Generator</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
     {%  block content %}
       replace me
     {%  endblock %}
